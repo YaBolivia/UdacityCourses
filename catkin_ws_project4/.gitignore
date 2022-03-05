@@ -1,0 +1,8 @@
+# files and folders to ignore
+build/
+devel/
+README\ Launch
+.catkin_workspace
+src/my_robot/maps/map.pgm
+src/my_robot/maps/map_old.pgm
+src/my_robot/Valid_DB/rtabmap.db
