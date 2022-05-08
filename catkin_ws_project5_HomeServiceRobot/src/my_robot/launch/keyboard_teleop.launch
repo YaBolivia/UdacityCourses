@@ -1,0 +1,7 @@
+<launch>
+<!--launch teleop-->
+  <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py">
+	<remap from="/cmd_vel/"	to="/cmd_vel_mux/">
+  </node>
+</launch>
+
