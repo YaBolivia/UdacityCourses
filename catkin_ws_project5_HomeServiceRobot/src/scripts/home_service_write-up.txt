@@ -1,0 +1,18 @@
+In order to perform a complete home-service automation, I call the following launch files:
+
+turtlebot_world.launch within the turtlebot_gazebo package
+amcl_demo_copy.launch within the turtlebot_gazebo package
+view_navigation.launch within the turtlebot_rviz_launchers package
+pick_object within the pick_object package
+add_markers within the add_markers package
+
+The first launch is in charge of opening gazebo, loading the map and the robot.
+
+The AMCL launcher loads the previously mapped map, calculates the global costmap and in in charge of the localization(using the Monte Carlo algorithm) and the navigation. In order to create the map for the amcl navigation, slam was used. This is possible using slam_gmapping within the gmapping package. The created image containing the map is then used in the amcl package.
+
+The view_navigetion launcher starts rviz, loads the configuration, the map and the robot to the environment. 
+
+To send a goal the pick_object action client uses the MoveBaseAction message from the move_base_msgs package and to confirm the arrival to the goal it compares the goal status with the enumerator "SUCCEEDED" inside the SimpleClientGoalState within the actionlib package.
+
+The add_marker node ("/basic_shapes") publishes the marker using the the visualization_marker topic. The subscriber "robotGoalStatus" listens to the "move_base/satus" topic and calls the "markerActionCallback". When the robot reaches the pickup position it triggers the deletion of the marker. When the robot reaches the drop position, it triggers the addition of the marker in the drop position. When the node is initialized, a marker is added in the pickup position.
+  
