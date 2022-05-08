@@ -99,9 +99,9 @@ int main(int argc, char **argv)
   marker_pub.publish(marker);
   */
 
+  // Excercise 9: Your Home Service Robot
   while (ros::ok() && !dropped)
   {
-    // Excercise 9: Your Home Service Robot
     if (goalStatus == 3 && picked)
     {
       ROS_WARN_ONCE("Drop position reached");
