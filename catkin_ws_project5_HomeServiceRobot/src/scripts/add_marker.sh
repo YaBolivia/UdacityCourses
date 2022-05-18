@@ -11,5 +11,5 @@ sleep 5
 xterm -e "roslaunch turtlebot_rviz_launchers view_navigation.launch" & 
 sleep 40
 # Run  dd_markers node
-xterm -e "rosrun add_markers add_markers" &
+xterm -e "rosrun add_markers add_markers_test" &
 sleep 10
